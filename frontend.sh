@@ -13,3 +13,4 @@ unzip /tmp/frontend.zip
 cp ${script_location}/files/nginx-roboshop.conf etc/nginx/default.d/roboshop.conf
 
 systemctl restart nginx
+
