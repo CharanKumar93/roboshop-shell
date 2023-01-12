@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ##### Change these values ###
-ZONE_ID="Z01921203I3IC6L44J4QQ"
-DOMAIN="devops93.online"
+ZONE_ID="Z0366464237Z7LZLZPKFA"
+DOMAIN="devopsb70.online"
 SG_NAME="allow-all"
 env=dev
 #############################
@@ -42,6 +42,11 @@ if [ -z "${SGID}" ]; then
   exit 1
 fi
 
+
+for component in catalogue cart user shipping payment frontend mongodb mysql rabbitmq redis dispatch; do
+  COMPONENT="${component}-${env}"
+  create_ec2
+done
 
 for component in catalogue cart user shipping payment frontend mongodb mysql rabbitmq redis dispatch; do
   COMPONENT="${component}-${env}"
