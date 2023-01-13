@@ -10,4 +10,7 @@ else
   exit
 fi
 }
+print _head() {
+  echo -e "\e[1m \e[0m"
+}
 
