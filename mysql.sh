@@ -7,7 +7,7 @@ fi
 
 
 print_head "Disable MySQL Default Module"
-dnf module disable mysql -y
+dnf module disable mysql -y &>>${LOG}
 status_check
 
 print_head "Copy MySQL Repo file"
@@ -29,4 +29,6 @@ status_check
 print_head "Reset Default Database Password"
 mysql_secure_installation --set-root-pass RoboShop@1 &>>${LOG}
 status_check
+
+
 
