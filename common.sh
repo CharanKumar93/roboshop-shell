@@ -42,12 +42,12 @@ rm -rf /app/* &>>${LOG}
 status_check
 
 print_head "Extracting App content"
-cd /app &>>${LOG}
-unzip /tmp/${component}.zip
+cd /app
+unzip /tmp/${component}.zip &>>${LOG}
 status_check
 
 print_head "Installing NodeJS Dependencies"
-cd /app
+cd /app &>>${LOG}
 npm install &>>${LOG}
 status_check
 
