@@ -34,7 +34,7 @@ status_check
 mkdir -p /app
 
 print_head "Downloading App content"
-curl -L -o /tmp/${componenet}.zip https://roboshop-artifacts.s3.amazonaws.com/${componenet}.zip &>>${LOG}
+curl -L -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${LOG}
 status_check
 
 print_head "Cleanup Old Content"
@@ -43,7 +43,7 @@ status_check
 
 print_head "Extracting App content"
 cd /app &>>${LOG}
-unzip /tmp/${componenet}.zip
+unzip /tmp/${component}.zip
 status_check
 
 print_head "Installing NodeJS Dependencies"
@@ -51,20 +51,20 @@ cd /app
 npm install &>>${LOG}
 status_check
 
-print_head "Configuring ${componenet} Service File"
-cp ${script_location}/files/${componenet}.service /etc/systemd/system/${componenet}.service &>>${LOG}
+print_head "Configuring ${component} Service File"
+cp ${script_location}/files/${component}.service /etc/systemd/system/${component}.service &>>${LOG}
 status_check
 
 print_head "Reload SystemD"
 systemctl daemon-reload &>>${LOG}
 status_check
 
-print_head "Enable ${componenet} Service"
-systemctl enable ${componenet} &>>${LOG}
+print_head "Enable ${component} Service"
+systemctl enable ${component} &>>${LOG}
 status_check
 
-print_head "Start ${componenet} Service"
-systemctl start ${componenet} &>>${LOG}
+print_head "Start ${component} Service"
+systemctl start ${component} &>>${LOG}
 status_check
 
 print_head "Configuring Mongo Repo"
@@ -76,7 +76,7 @@ yum install mongodb-org-shell -y &>>${LOG}
 status_check
 
 print_head "Load Schema"
-mongo --host mongodb-dev.devops93.online </app/schema/${componenet}.js &>>${LOG}
+mongo --host mongodb-dev.devops93.online </app/schema/${component}.js &>>${LOG}
 status_check
 }
 
