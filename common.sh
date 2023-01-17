@@ -31,7 +31,7 @@ useradd roboshop &>>${LOG}
 fi
 status_check
 
-mkdir -p /app
+mkdir -p /app &>>${LOG}
 
 print_head "Downloading App content"
 curl -L -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${LOG}
