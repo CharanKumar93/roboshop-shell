@@ -7,7 +7,7 @@ if [ $? -eq 0 ]; then
 else
   echo -e "\e[1;31mFAILURE\e[0m"
   echo "Refer Log file for more information, LOG - ${LOG}"
-  exit
+  exit 1
 fi
 }
 
