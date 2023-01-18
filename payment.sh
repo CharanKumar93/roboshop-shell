@@ -3,8 +3,8 @@ source common.sh
 component=payment
 schema_load=false
 
-if [ -z "${root_mysql_password}" ]; then
-  echo "Variable root_mysql_password is missing"
+if [ -z "${roboshop_rabbitmq_password}" ]; then
+  echo "Variable roboshop_rabbitmq_password is missing"
   exit
 fi
 
